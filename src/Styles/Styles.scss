@@ -1,0 +1,273 @@
+@import "../Variables/variables.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+  width: 100%;
+  height: 3rem;
+  background-color: $NavColor;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .logo {
+    color: $NavText;
+    font-size: larger;
+    padding: 0 2rem;
+  }
+  .nav-link {
+    margin: 2rem;
+
+    ul {
+      display: flex;
+      list-style: none;
+      align-items: center;
+      li {
+        padding: 0 2rem;
+        display: inline;
+
+        a {
+          text-decoration: none;
+          color: $NavText;
+        }
+        img {
+          width: 20px;
+          display: inline;
+          border-radius: 50%;
+          margin: 0 0.1rem;
+        }
+      }
+    }
+  }
+}
+.header-section {
+  margin: 2rem 0 0 2rem;
+}
+.navigate-section {
+  margin: 2rem 0 0 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: calc(40% - 2rem);
+
+  a {
+    text-decoration: none;
+    font-size: 0.9rem;
+    color: grey;
+    padding-bottom: 0.5rem;
+    display: inline-block;
+    text-align: center;
+  }
+  a.active {
+    color: #000;
+    width: 10%;
+    border-bottom: 2px solid black;
+  }
+}
+.result {
+  background-color: $Lightgrey;
+  height: 3rem;
+  margin: 0 0 0 0;
+  padding: 0.4rem 2rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  p {
+    font-size: 0.8rem;
+    color: black;
+  }
+}
+.content {
+  margin: 1rem 2rem 0 2rem;
+
+  h2 {
+    padding-bottom: 1rem;
+  }
+  .job {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    border: 0.5px solid $Grey;
+    height: 21rem;
+    margin-top: 1rem;
+  }
+
+  .job-head {
+    text-align: center;
+    width: 25%;
+    height: 20.9rem;
+    background: $Lightgrey;
+    .match-date {
+      margin-top: 4rem;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      color: $Grey;
+      letter-spacing: 1px;
+    }
+    .job-title {
+      text-align: center;
+      color: $FontText;
+      font-size: 1.8rem;
+    }
+    .job-location {
+      padding: 1rem;
+      font-weight: lighter;
+      color: $Grey;
+    }
+    .response {
+      margin: 1.3rem;
+      button {
+        border: none;
+        width: 12rem;
+        height: 2.5rem;
+        cursor: pointer;
+        border: $Grey 1px solid;
+      }
+      .like {
+        background: $Grey;
+      }
+      .dislike {
+        background: $Lightgrey;
+      }
+      @media (max-width: 1785px) {
+        button {
+          width: 8rem;
+        }
+      }
+    }
+  }
+  @media (max-width: 1435px) {
+    .job {
+      height: 22rem;
+    }
+    .job-head {
+      height: 21.9rem;
+    }
+  }
+  .job-details {
+    padding: 1.4rem;
+    width: calc(75% - 4rem);
+    display: flex;
+    flex-direction: column;
+
+    .details {
+      display: flex;
+      align-items: flex-start;
+    }
+    .about-company {
+      color: $Grey;
+      width: 40%;
+      padding-bottom: 1rem;
+
+      .company {
+        display: flex;
+        padding: 0.5rem 0;
+        p:first-child {
+          color: $Grey;
+          font-size: 0.8rem;
+          flex: 1;
+        }
+        p:nth-child(2) {
+          margin-left: 6rem;
+          font-size: 0.8rem;
+          font-weight: bold;
+          color: black;
+          flex: 2;
+        }
+      }
+    }
+    .about-role {
+      color: $Grey;
+      width: 40%;
+      text-transform: uppercase;
+      width: 40%;
+      padding-bottom: 1rem;
+      .company {
+        display: flex;
+        padding: 0.5rem 0;
+        p:first-child {
+          color: $Grey;
+          font-size: 0.8rem;
+          flex: 2;
+        }
+        p:nth-child(2) {
+          margin-left: 6rem;
+          font-size: 0.8rem;
+          color: black;
+          flex: 2;
+        }
+      }
+    }
+    .loader {
+      width: 21%;
+      margin: 2.5rem 0 0 4rem;
+
+      .CircularProgressbar {
+        width: 100%;
+
+        vertical-align: middle;
+      }
+
+      .CircularProgressbar .CircularProgressbar-path {
+        stroke: $Grey;
+        stroke-linecap: round;
+        transition: stroke-dashoffset 0.5s ease 0s;
+      }
+
+      .CircularProgressbar .CircularProgressbar-trail {
+        stroke-linecap: round;
+      }
+
+      .CircularProgressbar .CircularProgressbar-text {
+        fill: $Grey;
+
+        font-weight: lighter;
+        dominant-baseline: middle;
+        text-anchor: middle;
+      }
+
+      .CircularProgressbar .CircularProgressbar-background {
+        fill: #d6d6d6;
+      }
+
+      .CircularProgressbar.CircularProgressbar-inverted
+        .CircularProgressbar-background {
+        fill: #666666;
+      }
+
+      .CircularProgressbar.CircularProgressbar-inverted
+        .CircularProgressbar-text {
+        fill: #fff;
+      }
+
+      .CircularProgressbar.CircularProgressbar-inverted
+        .CircularProgressbar-path {
+        stroke: #fff;
+      }
+
+      .CircularProgressbar.CircularProgressbar-inverted
+        .CircularProgressbar-trail {
+        stroke: transparent;
+      }
+    }
+  }
+
+  .job-description {
+    color: $Grey;
+    padding-bottom: 1rem;
+    div {
+      margin-top: 0.5rem;
+      font-weight: bold;
+
+      a {
+        text-decoration: none;
+        color: $FontText;
+      }
+    }
+  }
+}
