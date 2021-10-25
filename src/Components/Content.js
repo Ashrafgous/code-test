@@ -8,7 +8,7 @@ function Content() {
   const percentage = 89;
   return (
     <div className="content">
-      <h2>Passed(15)</h2>
+      <h2 className="header">Passed(15)</h2>
       <div className="job">
         <div className="job-head">
           <h5 className="match-date">Matched 11/12/2018</h5>
@@ -102,8 +102,8 @@ function Content() {
               dolores voluptatibus incidunt, corporis aperiam facere veniam quos
               nobis. Commodi, doloremque qui. corporis aperiam facere veniam
               quos nobis. Commodi, doloremque qui.corporis aperiam facere veniam
-              quos Commodi, doloremque qui,{" "}
-              <a href="">See full job description</a>
+              quos Commodi, doloremque qui,
+              <a href="/">See full job description</a>
             </div>
           </div>
         </div>
@@ -203,7 +203,7 @@ function Content() {
               nobis. Commodi, doloremque qui. corporis aperiam facere veniam
               quos nobis. Commodi, doloremque qui.corporis aperiam facere veniam
               quos Commodi, doloremque qui,{" "}
-              <a href="">See full job description</a>
+              <a href="/">See full job description</a>
             </div>
           </div>
         </div>

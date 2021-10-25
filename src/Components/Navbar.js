@@ -1,15 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import "../Styles/Styles.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
-import profile from "../Image/profile.jpg";
 function Navbar() {
+  const [isActive, setActive] = useState("false");
+
+  const ToggleClass = () => {
+    setActive(!isActive);
+  };
   return (
-    <div className="navbar">
+    <nav className="navbar">
       <div className="logo">
         <h4>CorEdge</h4>
       </div>
-      <div className="nav-link">
+      {/* <a href="/" className="toggle-button">
+        <span className="bar"></span>
+        <span className="bar"></span>
+        <span className="bar"></span>
+      </a> */}
+     
+           
+    
+      <div className={isActive ? "nav-link": "nav-link active"}>
         <ul>
           <li>
             <a href="/">
@@ -37,7 +49,11 @@ function Navbar() {
           </li>
         </ul>
       </div>
-    </div>
+
+      <button onClick={ToggleClass} id="nav-toggle" href="#!">
+                <span></span>
+              </button>
+    </nav>
   );
 }
 

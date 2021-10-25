@@ -11,6 +11,7 @@
   height: 3rem;
   background-color: $NavColor;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
 
@@ -19,29 +20,103 @@
     font-size: larger;
     padding: 0 2rem;
   }
+  // .toggle-button {
+  //   position: absolute;
+  //   top: 0.75rem;
+  //   right: 1rem;
+  //   display: flex;
+  //   flex-direction: column;
+  //   justify-content: space-between;
+  //   width: 30px;
+  //   height: 21px;
+
+  //   .toggle-button span {
+  //     height: 3px;
+  //     width: 100%;
+  //     background-color: white;
+  //     border-radius: 10px;
+  //     color: white;
+  //   }
+  // }
+  #nav-toggle {
+    position: absolute;
+    top: 0.75rem;
+    right: 1rem;
+    cursor: pointer;
+    background-color: $NavColor;
+    border: none;
+    display: none;
+    padding: 10px 35px 16px 0px;
+    span,
+    span:before,
+    span:after {
+      cursor: pointer;
+      border-radius: 1px;
+      height: 2px;
+      width: 30px;
+      background: white;
+      position: absolute;
+
+      display: block;
+      content: "";
+      transition: all 300ms ease-in-out;
+    }
+    span:before {
+      top: -10px;
+    }
+    span:after {
+      bottom: -10px;
+    }
+  }
+
   .nav-link {
     margin: 2rem;
 
     ul {
       display: flex;
       list-style: none;
-      align-items: center;
       li {
-        padding: 0 2rem;
+        padding: 0 2rem 0 0;
         display: inline;
 
         a {
           text-decoration: none;
           color: $NavText;
         }
-        img {
-          width: 20px;
-          display: inline;
-          border-radius: 50%;
-          margin: 0 0.1rem;
-        }
       }
     }
+  }
+  @media (max-width: 750px) {
+    #nav-toggle {
+      display: flex;
+    }
+  }
+}
+@media (max-width: 750px) {
+  #nav-toggle {
+    display: flex;
+  }
+  .logo {
+    margin: 1rem 0 1rem 0;
+  }
+  .nav-link {
+    display: none;
+    width: 100%;
+  }
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+  }
+  .nav-link ul {
+    width: 100%;
+    flex-direction: column;
+  }
+  .nav-link li {
+    margin-bottom: 1rem;
+  }
+  .nav-link.active {
+    display: flex;
   }
 }
 .header-section {
@@ -68,6 +143,27 @@
     width: 10%;
     border-bottom: 2px solid black;
   }
+  @media (max-width: 1546px) {
+    a.active {
+      color: #000;
+      width: 17%;
+      border-bottom: 2px solid black;
+    }
+  }
+}
+@media (max-width: 900px) {
+  a.active {
+    color: #000;
+    width: 10%;
+    border-bottom: 2px solid black;
+  }
+  .navigate-section {
+    width: 100%;
+    justify-content: space-around;
+  }
+  .header-section {
+    text-align: center;
+  }
 }
 .result {
   background-color: $Lightgrey;
@@ -85,7 +181,7 @@
 .content {
   margin: 1rem 2rem 0 2rem;
 
-  h2 {
+  .header {
     padding-bottom: 1rem;
   }
   .job {
@@ -139,6 +235,16 @@
           width: 8rem;
         }
       }
+      @media (max-width: 1259px) {
+        button {
+          width: 5.4rem;
+        }
+      }
+      @media (max-width: 824px) {
+        button {
+          width: 7rem;
+        }
+      }
     }
   }
   @media (max-width: 1435px) {
@@ -147,6 +253,14 @@
     }
     .job-head {
       height: 21.9rem;
+    }
+  }
+  @media (max-width: 1158px) {
+    .job {
+      height: 23rem;
+    }
+    .job-head {
+      height: 22.9rem;
     }
   }
   .job-details {
@@ -179,13 +293,25 @@
           color: black;
           flex: 2;
         }
+
+        @media (max-width: 1435px) {
+          p:first-child {
+            color: $Grey;
+            padding-right: 1rem;
+            flex: 1;
+          }
+          p:nth-child(2) {
+            margin-left: 2rem;
+            font-size: 0.8rem;
+            flex: 1;
+          }
+        }
       }
     }
     .about-role {
       color: $Grey;
       width: 40%;
       text-transform: uppercase;
-      width: 40%;
       padding-bottom: 1rem;
       .company {
         display: flex;
@@ -257,6 +383,31 @@
     }
   }
 
+  @media (max-width: 1380px) {
+    .loader {
+      display: none;
+      width: 0%;
+    }
+    .details {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+
+    .about-company,
+    .about-role {
+      width: 100%;
+
+      p:first-child {
+        width: 100%;
+      }
+      p:nth-child(2) {
+        flex: 0;
+        margin-left: 0;
+      }
+    }
+  }
+
   .job-description {
     color: $Grey;
     padding-bottom: 1rem;
@@ -269,5 +420,50 @@
         color: $FontText;
       }
     }
+  }
+}
+
+@media (max-width: 1002px) {
+  .header {
+    text-align: center;
+  }
+  .about-company {
+    display: none;
+  }
+  .job {
+    width: 100%;
+    height: 21rem;
+    margin-top: 1rem;
+
+    .job-head {
+      text-align: center;
+      width: 80%;
+      height: 22.9rem;
+    }
+  }
+
+  .job-description {
+    font-size: 1rem;
+  }
+  button {
+    width: 5rem;
+  }
+}
+
+@media (max-width: 573px) {
+  .job {
+    width: 100%;
+    height: 21rem;
+    margin-top: 1rem;
+
+    .job-head {
+      text-align: center;
+      width: 70%;
+      height: 22.9rem;
+      background: $Lightgrey;
+    }
+  }
+  .job-description {
+    font-size: 0.8rem;
   }
 }
